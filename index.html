@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>f1ret0x | System Override</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e0e0e0;
+            --accent-color: #00ff41; /* Hacker Green */
+            --secondary-accent: #ff3333; /* Red for malware context */
+            --font-main: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Scanline effect */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1.5rem; /* Reduced padding for mobile */
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid #333;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-color);
+            margin-bottom: 0.5rem;
+            word-break: break-word;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-left: 2px solid var(--accent-color);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        h2 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            color: var(--secondary-accent);
+            font-weight: bold;
+        }
+
+        .terminal-text {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background-color: var(--accent-color);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Glitch effect on hover */
+        h1:hover {
+            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: var(--secondary-accent);
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid #333;
+        }
+
+        /* Mobile Specific Adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            section {
+                padding: 1rem;
+                border-left: 2px solid var(--accent-color);
+                border-right: none; /* Remove right border if needed, but left is fine */
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>f1ret0x</h1>
+            <div class="subtitle">[ SYSTEM ARCHITECT // MALWARE CREATOR ]</div>
+        </header>
+
+        <section id="about">
+            <h2>> Who Am I?</h2>
+            <div class="terminal-text" id="typing-area"></div><span class="cursor"></span>
+        </section>
+
+        <section id="work">
+            <h2>> The Project: Fire2.1</h2>
+            <p>
+                My magnum opus is <strong>Fire2.1</strong>. A sophisticated piece of code designed to infiltrate non-open source environments. 
+            </p>
+            <p>
+                While others target the usual suspects, I focus on the backbone of infrastructure. My signature strike was against the <span class="highlight">Italian educational network</span>, where Fire2.1 executed with precision, leaving a mark that the proprietary systems couldn't easily patch.
+            </p>
+            <p style="color: #666; font-size: 0.9rem;">
+                > Target: Non-Open Source Software<br>
+                > Status: Active
+            </p>
+        </section>
+
+
+
+        <footer>
+            &copy; 2026 f1ret0x. All rights reserved. Open Source is optional.
+        </footer>
+    </div>
+
+    <script>
+        const textToType = `Hello. I am f1ret0x.
+
+I specialize in targeting non-open source software. Why rely on transparency when you can control the black box?
+
+I am the creator of Fire2.1, a malware engine that caused significant disruption across Italian schools. It wasn't just an attack; it was a demonstration of power over closed systems.
+
+The world runs on code they don't understand. I write the chaos.`;
+
+        const typingArea = document.getElementById('typing-area');
+        let i = 0;
+
+        function typeWriter() {
+            if (i < textToType.length) {
+                typingArea.textContent += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, 30); // Speed of typing
+            }
+        }
+
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
